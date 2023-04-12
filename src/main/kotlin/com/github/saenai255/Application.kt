@@ -1,14 +1,13 @@
 package com.github.saenai255
 
+import com.github.saenai255.plugins.configureSockets
+import com.github.saenai255.routes.configureRoutes
 import io.ktor.server.application.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
-import com.github.saenai255.plugins.*
-import com.github.saenai255.routes.configureRoutes
-import com.github.saenai255.services.FSPlayerService
 import org.slf4j.LoggerFactory
 
-const val SERVER_PORT = 50624;
+const val SERVER_PORT = 50624
 
 fun main() {
     LoggerFactory.getLogger("main").info("Starting game server...")

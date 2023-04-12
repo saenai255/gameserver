@@ -1,11 +1,7 @@
 import java.nio.file.Files
-import java.nio.file.OpenOption
-import java.nio.file.Path
 import java.nio.file.Paths
 import java.nio.file.StandardOpenOption
 import java.util.stream.Collectors
-import java.util.stream.Stream
-import kotlin.streams.asStream
 
 val ktor_version: String by project
 val kotlin_version: String by project
@@ -69,7 +65,8 @@ ${
 
     val projectPath = Paths.get(project.projectDir.absolutePath)
     val generatedProtoFilesPath = projectPath.resolve("./build/generated/source/proto/main/java/com/github/saenai255/protobuf").normalize()
-    val generatedServiceFiles = Files.list(generatedProtoFilesPath)
+
+    Files.list(generatedProtoFilesPath)
         .filter { it.fileName.toString().endsWith("Service.java") && !it.fileName.toString().contains("Abstract") }
         .map {
             it.fileName.getName(it.fileName.nameCount - 1).toString().split('.').first() to Files.readAllLines(it)

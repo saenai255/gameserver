@@ -1,14 +1,13 @@
 package com.github.saenai255.routes
 
-import com.github.saenai255.protobuf.*
+import com.github.saenai255.protobuf.ProtoMessage
 import com.github.saenai255.services.FSServiceManager
-import com.google.protobuf.*
+import com.google.protobuf.Message
 import io.ktor.server.application.*
 import io.ktor.server.routing.*
 import io.ktor.server.websocket.*
 import io.ktor.websocket.*
 import org.slf4j.LoggerFactory
-import java.util.logging.Logger
 
 fun Application.configureRoutes() {
     val log = LoggerFactory.getLogger(Application::class.java)

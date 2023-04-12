@@ -1,11 +1,6 @@
 package com.github.saenai255.services
 
-import com.github.saenai255.protobuf.AbstractFSPlayerService
-import com.github.saenai255.protobuf.FSPing
-import com.github.saenai255.protobuf.FSServiceKind
-import com.github.saenai255.protobuf.FSServiceMethod
-import com.github.saenai255.protobuf.PlayerId
-import com.github.saenai255.protobuf.ProtoMessage
+import com.github.saenai255.protobuf.*
 import com.google.protobuf.ByteString
 import com.google.protobuf.Message
 import io.ktor.server.websocket.*
