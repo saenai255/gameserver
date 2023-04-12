@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+option java_generate_equals_and_hash = true;
+option java_multiple_files = true;
+option java_string_check_utf8 = true;
+option java_package = "com.github.saenai255.protobuf";
+option java_generic_services = true;
+
+import "Types.proto";
+
+enum FCServiceKind {
+  FC_INVALID_SERVICE = 0;
+  FC_SERVICE_PLAYER = 1;
+}
+
+enum FCServiceMethod {
+  FC_INVALID_METHOD = 0;
+
+  // PlayerService
+  FC_METHOD_LEVEL_UP = 1;
+}
+
+message ProtoMessageForClient {
+  FCServiceKind service = 1;
+  FCServiceMethod method = 2;
+  bytes parameter = 3;
+}
+
+service IFCPlayerService {
+  rpc levelUp(PlayerId) returns (ProcResult);
+}

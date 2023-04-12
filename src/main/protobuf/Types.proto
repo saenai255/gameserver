@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option java_generate_equals_and_hash = true;
+option java_multiple_files = true;
+option java_string_check_utf8 = true;
+option java_package = "com.github.saenai255.protobuf";
+option java_generic_services = true;
+
+enum ProcResultType {
+  FAIL_UNKNOWN = 0;
+  OK = 1;
+}
+
+message ProcResult {
+  ProcResultType type = 1;
+  optional string message = 2;
+}
+
+message Player {
+  uint64 id = 1;
+  uint32 level = 2;
+}
+
+message PlayerId {
+  uint64 value = 1;
+}

@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+option java_generate_equals_and_hash = true;
+option java_multiple_files = true;
+option java_string_check_utf8 = true;
+option java_package = "com.github.saenai255.protobuf";
+option java_generic_services = true;
+
+import "Types.proto";
+
+enum FSServiceKind {
+  FS_INVALID_SERVICE = 0;
+  FS_SERVICE_PLAYER = 1;
+}
+
+enum FSServiceMethod {
+  FS_INVALID_METHOD = 0;
+
+  // PlayerService
+  FS_GET_PLAYER = 1;
+  FS_PING = 2;
+}
+
+message ProtoMessage {
+  FSServiceKind service = 1;
+  FSServiceMethod method = 2;
+  bytes parameter = 3;
+}
+
+message FSPing {
+  int32 value = 1;
+}
+
+message FSPong {
+  int32 value = 1;
+}
+
+service IFSPlayerService {
+  rpc ping(FSPing) returns (FSPong);
+  rpc getPlayer(PlayerId) returns (Player);
+}
